@@ -1,0 +1,47 @@
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"glue:StartCrawler",
+				"glue:GetCrawler",
+				"glue:UpdateCrawler",
+				"glue:GetCrawlerMetrics"
+			],
+			"Resource": [
+				"arn:aws:glue:us-east-1:451702994321:crawler/nyc-taxi-raw-crawler",
+				"arn:aws:glue:us-east-1:451702994321:crawler/nyc_taxi_processed_crawler"
+			]
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"glue:StartJobRun",
+				"glue:GetJobRuns",
+				"glue:GetJobRun",
+				"glue:TagResource"
+			],
+			"Resource": "arn:aws:glue:us-east-1:451702994321:job/nyc_taxi_etl_job"
+		},
+		{
+			"Effect": "Allow",
+			"Action": "sns:Publish",
+			"Resource": "arn:aws:sns:us-east-1:451702994321:glue-failure-topic"
+		},
+		{
+			"Effect": "Allow",
+			"Action": [
+				"logs:CreateLogGroup",
+				"logs:CreateLogStream",
+				"logs:PutLogEvents"
+			],
+			"Resource": "*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": "lambda:InvokeFunction",
+			"Resource": "arn:aws:lambda:us-east-1:451702994321:function:Taxi_data_pipeline"
+		}
+	]
+}

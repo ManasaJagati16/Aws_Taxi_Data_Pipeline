@@ -1,0 +1,9 @@
+# Processed Glue Crawler Configuration
+
+- **Crawler Name:** nyc_taxi_processed_crawler
+- **Source S3 Path:** s3://nyc-taxi-data-lake-manasa/processed/nyc_taxi/{today_date}
+- **Database:** nyc_taxi_data_lake
+- **Table Prefix:** processed_nyc_taxi_
+- **Schedule:** On demand
+- **IAM Role:** AWSGlueServiceRole-nyc-taxi
+- **Output:** Table updated in Glue Data Catalog

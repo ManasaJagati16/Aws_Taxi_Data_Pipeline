@@ -1,0 +1,9 @@
+# Raw Glue Crawler Configuration
+
+- **Crawler Name:** nyc-taxi-raw-crawler
+- **Source S3 Path:** s3://nyc-taxi-data-lake-manasa/raw/nyc_taxi/{today_date}
+- **Database:** nyc_taxi_data_lake
+- **Table Prefix:** 
+- **Schedule:** On demand
+- **IAM Role:** AWSGlueServiceRole-nyc-taxi
+- **Output:** Table created in Glue Data Catalog
