@@ -90,6 +90,9 @@ AWS_Taxi_Data_Pipeline/
 ├── README.md
 ├── Architecture/
 │   └── architecture-diagram.png
+├── Athena Queries/
+│   ├── join_taxirecords_and_zonelookup_tables.sql
+│   └── zone_lookup_table_creation.sql
 ├── Lambda/
 │   ├── Taxi_data_pipeline_lambda.py
 │   └── retry_glue_job_for_exception_lambda.py
@@ -101,14 +104,13 @@ AWS_Taxi_Data_Pipeline/
 ├── Sample Input Raw Data/
 │   └── sample_raw_data.parquet
 ├── Quicksight/
-│   └── dashboard_screenshots/
+│   └── AWS_QuickSight.pdf
 ├── docs/
 │   └── design_document.md
 ├── IAM Policies/
 │   ├── glue_job_role.json
 │   └── Taxi_data_pipeline_role.json
 └── .gitignore
-
 
 ---
 
@@ -197,10 +199,10 @@ For each simulated failure, the pipeline:
 
 ---
 
-## What’s Next
+## QuickSight Dashboards
 
-- **QuickSight dashboards and analytics layer to be added soon!**
-
+- I used AWS Athena (with Presto/Trino SQL) to efficiently query and analyze the processed taxi data directly from S3. Zone    names and details were enriched by joining with a zone lookup dataset.
+Check the "Athena Queries" folder in this repo for all queries and dashboard screenshots in "QuickSight" folder.
 ---
 
 ## Tech Stack
@@ -212,6 +214,7 @@ For each simulated failure, the pipeline:
 - Amazon SNS
 - Amazon EventBridge
 - QuickSight
+- AWS Athena
 - PySpark
 - Python
 
